@@ -16,7 +16,9 @@ function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const { data } = await axios.get("http://localhost:8080/api/getdata");
+      const { data } = await axios.get(
+        "https://insighter-api.onrender.com/api/getdata"
+      );
       setData(data);
     }
 

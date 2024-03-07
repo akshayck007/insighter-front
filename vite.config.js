@@ -8,10 +8,10 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          // Manually specify chunks if needed
+          "react-simple-maps": ["react-simple-maps"],
         },
       },
     },
-    chunkSizeWarningLimit: 1000, // Adjust as needed
+    chunkSizeWarningLimit: 800, // Adjust as needed
   },
 });

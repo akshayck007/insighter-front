@@ -17,7 +17,9 @@ function Filter({ modData, open }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const { data } = await axios.get("http://localhost:8080/api/getdata");
+        const { data } = await axios.get(
+          "https://insighter-api.onrender.com/api/getdata"
+        );
         setMainData(data);
       } catch (error) {
         console.log(error);
