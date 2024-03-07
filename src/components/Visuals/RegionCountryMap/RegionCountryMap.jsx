@@ -1,24 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import {
-//   ComposableMap,
-//   Geographies,
-//   Geography,
-//   ZoomableGroup,
-// } from "react-simple-maps";
-const { ComposableMap, Geographies, Geography, ZoomableGroup } = await import(
-  "react-simple-maps"
-);
+import GEOJSON_DATA from "../../../geojson.json";
 import "./countryMap.scss";
 
-import GEOJSON_DATA from "../../../geojson.json";
 function RegionCountryMap({ data }) {
   const [tooltipContent, setTooltipContent] = useState("");
+  const [mapComponents, setMapComponents] = useState(null);
+
+  useEffect(() => {
+    const importMapComponents = async () => {
+      const { ComposableMap, Geographies, Geography, ZoomableGroup } =
+        await import("react-simple-maps");
+
+      setMapComponents({
+        ComposableMap,
+        Geographies,
+        Geography,
+        ZoomableGroup,
+      });
+    };
+
+    importMapComponents();
+  }, []);
 
   const filteredData = data.filter(
     (item) => item.country !== "" && item.intensity !== null
   );
-  // console.log(filteredData);
+
+  if (!mapComponents) {
+    return null; // Return loading state or handle it appropriately
+  }
+
+  const { ComposableMap, Geographies, Geography, ZoomableGroup } =
+    mapComponents;
 
   return (
     <div className="countryMap">
@@ -68,7 +82,7 @@ function RegionCountryMap({ data }) {
                         onMouseLeave={() => setTooltipContent("")}
                         style={{
                           hover: {
-                            fill: "#6781b4", // Change color on hover if needed
+                            fill: "#6781b4",
                             outline: "none",
                           },
                         }}
@@ -93,13 +107,10 @@ function RegionCountryMap({ data }) {
 }
 
 const getColorBasedOnIntensity = (intensity) => {
-  //   if (intensity >= 60) return "#FF0000";
-  //   if (intensity >= 30 && intensity <= 60) return "#FFA500";
-  //   if (intensity >= 10 && intensity <= 30) return "#FFFF00";
   if (intensity > 0 && intensity < 10) return "#FFFF00";
   if (intensity > 10 && intensity < 20) return "#FFA500";
   if (intensity > 20 && intensity < 30) return "#FF0000";
-  return "#F5F4F6"; // Default color
+  return "#F5F4F6";
 };
 
 export default RegionCountryMap;
