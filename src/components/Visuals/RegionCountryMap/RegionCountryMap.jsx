@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import {
   ComposableMap,
   Geographies,
@@ -8,14 +9,13 @@ import {
 import "./countryMap.scss";
 
 import GEOJSON_DATA from "../../../geojson.json";
-
 function RegionCountryMap({ data }) {
   const [tooltipContent, setTooltipContent] = useState("");
 
   const filteredData = data.filter(
     (item) => item.country !== "" && item.intensity !== null
   );
-  console.log(filteredData);
+  // console.log(filteredData);
 
   return (
     <div className="countryMap">
@@ -31,7 +31,7 @@ function RegionCountryMap({ data }) {
               {({ geographies }) =>
                 geographies.map((geo) => {
                   const d = filteredData.find(
-                    (item) => item.country === geo.properties.ADMIN
+                    (item) => item.country === geo.properties.name
                   );
 
                   return (
