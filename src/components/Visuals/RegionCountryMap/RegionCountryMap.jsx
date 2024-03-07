@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import {
-  ComposableMap,
-  Geographies,
-  Geography,
-  ZoomableGroup,
-} from "react-simple-maps";
+// import {
+//   ComposableMap,
+//   Geographies,
+//   Geography,
+//   ZoomableGroup,
+// } from "react-simple-maps";
+const { ComposableMap, Geographies, Geography, ZoomableGroup } = await import(
+  "react-simple-maps"
+);
 import "./countryMap.scss";
 
 import GEOJSON_DATA from "../../../geojson.json";

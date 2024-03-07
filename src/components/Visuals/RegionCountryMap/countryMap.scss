@@ -1,4 +1,5 @@
 @import "../../../styles/variables.scss";
+@import "../../../styles/responsive.scss";
 .countryMap {
   display: flex;
   width: 100%;
@@ -15,6 +16,13 @@
     padding: 5px 20px;
     border-radius: 10px;
     text-align: center;
+    overflow-x: hidden;
+    @include lg {
+      position: absolute;
+      bottom: -20px;
+      left: 5px;
+      opacity: 0.5;
+    }
     .tooltipContent {
       span {
         color: rgb(0, 255, 0);
@@ -25,6 +33,12 @@
   .map {
     flex: 0 0 80%;
     height: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    @include lg {
+      flex: 0 0 100%;
+    }
+
     cursor: grab;
     &:active {
       cursor: grabbing;

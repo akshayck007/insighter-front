@@ -7,9 +7,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          "react-simple-maps": ["react-simple-maps"],
-        },
+        manualChunks: {},
       },
     },
     chunkSizeWarningLimit: 800, // Adjust as needed
