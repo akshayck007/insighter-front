@@ -1,0 +1,23 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/responsive.scss";
+.mainInsights {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  h2 {
+    margin: 0 auto;
+  }
+  .info {
+    // opacity: 0.8;
+    position: absolute;
+    background-color: $dark-bg;
+    padding: 10px 20px;
+    right: 0;
+    border-radius: 10px;
+    // box-shadow: $box-shadow;
+    border: $borders;
+    @include sm {
+      display: none;
+    }
+  }
+}

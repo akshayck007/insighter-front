@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+
+.sideMenu {
+  h2 {
+    padding-bottom: 1rem;
+    border-bottom: $borders;
+    margin: 1rem 0;
+  }
+  h3 {
+    margin: 1rem 0;
+    color: $soft-color;
+    padding: 5px 20px;
+    cursor: pointer;
+    &:hover {
+      box-shadow: $box-shadow;
+      background-color: $dark-bg;
+    }
+  }
+}

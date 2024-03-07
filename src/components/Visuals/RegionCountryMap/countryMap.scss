@@ -1,0 +1,33 @@
+@import "../../../styles/variables.scss";
+.countryMap {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+  padding-block: 1rem;
+  position: relative;
+  align-items: flex-start;
+  overflow-y: hidden;
+  height: 100%;
+
+  .mapInfo {
+    position: sticky;
+    background-color: $dark-bg;
+    padding: 5px 20px;
+    border-radius: 10px;
+    text-align: center;
+    .tooltipContent {
+      span {
+        color: rgb(0, 255, 0);
+        font-size: 1rem;
+      }
+    }
+  }
+  .map {
+    flex: 0 0 80%;
+    height: 100%;
+    cursor: grab;
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}

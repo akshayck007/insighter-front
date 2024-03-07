@@ -1,0 +1,111 @@
+@import "../../styles/variables.scss";
+@import "../../styles/responsive.scss";
+
+.navbar {
+  padding: 10px 20px;
+  max-width: 100%;
+  overflow: hidden;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $dark-bg;
+  .icon {
+    font-size: 1rem;
+  }
+
+  .leftbar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    * {
+      cursor: pointer;
+    }
+    .logo {
+      padding: 5px 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: darken($dark-bg, 5);
+      img {
+        width: 30px;
+      }
+    }
+
+    .searchbar {
+      display: flex;
+      align-items: center;
+      padding-left: 1.2rem;
+      //   background-color: aqua;
+      position: relative;
+      @include sm {
+        display: none;
+      }
+      .searchIcon {
+        position: absolute;
+        margin-left: 15px;
+      }
+      input {
+        border-radius: 10px;
+        background-color: $soft-bg;
+        color: $main-color;
+        outline: none;
+        border: none;
+        padding: 5px 20px;
+      }
+    }
+  }
+
+  .middlebar {
+    display: flex;
+    gap: 1vw;
+    font-size: 1rem;
+    a {
+      color: $main-color;
+      cursor: pointer;
+    }
+  }
+
+  .rightbar {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      .dp {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        img {
+          width: 30px;
+          border-radius: 50%;
+          border: $borders;
+          padding: 2px;
+        }
+      }
+      .notifications {
+        display: flex;
+        align-items: center;
+        position: relative;
+        .count {
+          width: 12px;
+          height: 12px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          z-index: 100;
+          top: -5px;
+          right: -5px;
+          border-radius: 50%;
+          background-color: rgb(48, 168, 1);
+        }
+      }
+    }
+  }
+}
